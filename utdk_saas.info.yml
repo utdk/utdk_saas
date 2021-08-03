@@ -1,0 +1,13 @@
+name: UT Drupal Kit SaaS
+type: module
+description: Provides configuration for managed UT Drupal Kit sites.
+core: 8.x
+core_version_requirement: '^8 || ^9'
+version: '3.1.0'
+package: UTexas
+dependencies:
+  - 'utprof:utprof'
+  - 'utnews:utnews'
+  - 'utevent:utevent'
+  - 'utexas_saml_auth_helper:utexas_saml_auth_helper'
+core_incompatible: false
