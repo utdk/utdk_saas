@@ -1,0 +1,25 @@
+{
+  "name": "utexas/utdk_saas",
+  "type": "drupal-custom-module",
+  "description": "UT Drupal Kit managed configuration handler.",
+  "keywords": ["Drupal"],
+  "license": ["GPL-2.0-or-later"],
+  "homepage": "https://github.austin.utexas.edu/eis1-wcs/utdk_saas",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://github.austin.utexas.edu/eis1-wcs/utdk_saas/issues",
+    "source": "https://github.austin.utexas.edu/eis1-wcs/utdk_saas"
+  },
+  "require": {
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9"
+      }
+    }
+  }
+}
