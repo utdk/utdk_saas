@@ -3,7 +3,7 @@ type: module
 description: Provides configuration for managed UT Drupal Kit sites.
 core: 8.x
 core_version_requirement: '^8 || ^9'
-version: '3.1.0'
+version: '3.0.0'
 package: UTexas
 dependencies:
   - 'utprof:utprof'
