@@ -21,3 +21,11 @@ function utdk_saas_install() {
 function utdk_saas_update_8101() {
   SaasHelper::assignPermissions(['administer blocks'], 'utexas_site_manager');
 }
+
+/**
+ * Add the 'update any media' permission to the Manager and Editor roles.
+ */
+function utdk_saas_update_8102() {
+  SaasHelper::assignPermissions(['update any media'], 'utexas_site_manager');
+  SaasHelper::assignPermissions(['update any media'], 'utexas_content_editor');
+}
