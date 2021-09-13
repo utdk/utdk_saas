@@ -1,0 +1,31 @@
+<?php
+
+use Drupal\utdk_saas\SaasHelper;
+
+/**
+ * @file
+ * Configuration updates for site-as-service integrations.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function utdk_saas_install() {
+  // Add the 'administer blocks' permission to the Site Manager role (#7).
+  SaasHelper::assignPermissions(['administer blocks'], 'utexas_site_manager');
+}
+
+/**
+ * Add the 'administer blocks' permission to the Site Manager role (#7).
+ */
+function utdk_saas_update_8101() {
+  SaasHelper::assignPermissions(['administer blocks'], 'utexas_site_manager');
+}
+
+/**
+ * Add the 'update any media' permission to the Manager and Editor roles.
+ */
+function utdk_saas_update_8102() {
+  SaasHelper::assignPermissions(['update any media'], 'utexas_site_manager');
+  SaasHelper::assignPermissions(['update any media'], 'utexas_content_editor');
+}
