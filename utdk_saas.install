@@ -1,11 +1,12 @@
 <?php
 
-use Drupal\utdk_saas\SaasHelper;
-
 /**
  * @file
  * Configuration updates for site-as-service integrations.
  */
+
+use Drupal\utdk_saas\SaasHelper;
+use Drupal\filter\Entity\FilterFormat;
 
 /**
  * Implements hook_install().
@@ -28,4 +29,21 @@ function utdk_saas_update_8101() {
 function utdk_saas_update_8102() {
   SaasHelper::assignPermissions(['update any media'], 'utexas_site_manager');
   SaasHelper::assignPermissions(['update any media'], 'utexas_content_editor');
+}
+
+/**
+ * Remove filter_html_image_secure from Full and Basic text formats (#64).
+ */
+function utdk_saas_update_8103() {
+  $text_formats = [
+    'basic_html',
+    'full_html',
+  ];
+  foreach ($text_formats as $text_format) {
+    $text_format_object = FilterFormat::load($text_format);
+    if ($text_format_object->filters('filter_html_image_secure') !== NULL) {
+      $text_format_object->removeFilter('filter_html_image_secure');
+      $text_format_object->save();
+    }
+  }
 }

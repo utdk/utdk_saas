@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains business logic for UTDK SaaS module.
+ */
+
+use Drupal\utdk_saas\ToolbarHandler;
+
+/**
+ * Implements hook_toolbar().
+ */
+function utdk_saas_toolbar() {
+  return \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(ToolbarHandler::class)
+    ->toolbar();
+}
