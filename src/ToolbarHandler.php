@@ -93,13 +93,28 @@ class ToolbarHandler implements ContainerInjectionInterface {
         'tab' => [
           '#type' => 'link',
           '#title' => $this->t('Drupal Kit documentation'),
-          '#url' => Url::fromUri('https://drupalkit.its.utexas.edu/docs'),
+          '#url' => Url::fromUri('https://drupalkit.its.utexas.edu/docs/utdk_managed/index.html'),
           '#attributes' => [
-            'title' => $this->t('Drupal Kit support'),
+            'title' => $this->t('Drupal Kit documentation'),
             'class' => ['toolbar-icon', 'toolbar-icon-system-admin-content'],
+            'target' => '_blank',
           ],
         ],
         '#weight' => 999,
+      ];
+      $items['demo'] = [
+        '#type' => 'toolbar_item',
+        'tab' => [
+          '#type' => 'link',
+          '#title' => $this->t('Drupal Kit demo site'),
+          '#url' => Url::fromUri('https://demo.drupalkit.its.utexas.edu'),
+          '#attributes' => [
+            'title' => $this->t('Drupal Kit demo site'),
+            'class' => ['toolbar-icon', 'toolbar-icon-system-admin-content'],
+            'target' => '_blank',
+          ],
+        ],
+        '#weight' => 1000,
       ];
     }
 

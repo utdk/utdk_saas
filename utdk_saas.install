@@ -14,6 +14,8 @@ use Drupal\filter\Entity\FilterFormat;
 function utdk_saas_install() {
   // Add the 'administer blocks' permission to the Site Manager role (#7).
   SaasHelper::assignPermissions(['administer blocks'], 'utexas_site_manager');
+  // Disable Drupal-generated system advisories (#70).
+  \Drupal::service('config.factory')->getEditable('system.advisories')->set('enabled', 0)->save();
 }
 
 /**
@@ -46,4 +48,11 @@ function utdk_saas_update_8103() {
       $text_format_object->save();
     }
   }
+}
+
+/**
+ * Disable Drupal-generated system advisories (#70).
+ */
+function utdk_saas_update_8104() {
+  \Drupal::service('config.factory')->getEditable('system.advisories')->set('enabled', 0)->save();
 }
