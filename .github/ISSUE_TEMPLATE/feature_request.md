@@ -5,11 +5,11 @@ labels: 'enhancement'
 
 ---
 
-### User story
+## User story
 <!-- As a _____, I want to _____, so that ______. -->
 
-### Proposed implementation
+## Proposed implementation
 
-### Alternatives considered
+## Alternatives considered
 
-### Technical plan
+## Technical plan

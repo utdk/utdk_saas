@@ -5,12 +5,12 @@ labels: 'bug'
 
 ---
 
-### Short description
+## Short description
 <!-- Limit to 1-2 sentence summary -->
 
-### Additional information & expected behavior
+## Additional information & expected behavior
 
-### Steps to reproduce
+## Steps to reproduce
 1.
 1.
 1.
