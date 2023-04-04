@@ -5,7 +5,7 @@ labels: 'task'
 
 ---
 
-### Short description
+## Short description
 <!-- Limit to 1-2 sentences -->
 
-### Additional explanation
+## Additional explanation

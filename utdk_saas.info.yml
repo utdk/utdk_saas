@@ -1,9 +1,8 @@
 name: UT Drupal Kit SaaS
 type: module
 description: Provides configuration for managed UT Drupal Kit sites.
-core: 8.x
-core_version_requirement: '^8 || ^9'
-version: '3.3.0'
+core_version_requirement: ^9 || ^10
+version: '3.4.0'
 package: UTexas
 dependencies:
   - 'utprof:utprof'

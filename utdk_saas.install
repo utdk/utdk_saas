@@ -56,3 +56,12 @@ function utdk_saas_update_8103() {
 function utdk_saas_update_8104() {
   \Drupal::service('config.factory')->getEditable('system.advisories')->set('enabled', 0)->save();
 }
+
+/**
+ * Disable Field UI in Managed sites (From issue #2097 in utdk_profile).
+ */
+function utdk_saas_update_8105() {
+  if (\Drupal::moduleHandler()->moduleExists('field_ui') === TRUE) {
+    \Drupal::service('module_installer')->uninstall(['field_ui']);
+  }
+}
