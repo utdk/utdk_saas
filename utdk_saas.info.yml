@@ -5,8 +5,17 @@ core_version_requirement: ^9 || ^10
 version: '3.4.0'
 package: UTexas
 dependencies:
-  - 'utprof:utprof'
-  - 'utnews:utnews'
-  - 'utevent:utevent'
-  - 'utexas_saml_auth_helper:utexas_saml_auth_helper'
+  - 'drupal:smtp'
+  - 'utnews_block_type_news_listing'
+  - 'utnews_content_type_news'
+  - 'utnews_view_listing_page'
+  - 'utevent_block_type_event_listing'
+  - 'utevent_content_type_event'
+  - 'utevent_view_listing_page'
+  - 'utprof_block_type_profile_listing'
+  - 'utprof_content_type_profile'
+  - 'utprof_view_profiles'
+  - 'utprof_vocabulary_groups'
+  - 'utprof_vocabulary_tags'
+  - 'utexas_saml_auth_helper'
 core_incompatible: false
