@@ -11,6 +11,12 @@
     "source": "https://github.austin.utexas.edu/eis1-wcs/utdk_saas"
   },
   "require": {
+    "drupal/smtp": "^1",
+    "utexas/pantheon_saml_integration": "^4",
+    "utexas/utevent": "^3",
+    "utexas/utexas_pantheon_logs_http": "^2",
+    "utexas/utnews": "^3",
+    "utexas/utprof": "^3"
   },
   "config": {
     "sort-packages": true

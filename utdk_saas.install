@@ -7,6 +7,8 @@
 
 use Drupal\utdk_saas\SaasHelper;
 use Drupal\filter\Entity\FilterFormat;
+use Symfony\Component\Yaml\Yaml;
+
 
 /**
  * Implements hook_install().
@@ -63,5 +65,24 @@ function utdk_saas_update_8104() {
 function utdk_saas_update_8105() {
   if (\Drupal::moduleHandler()->moduleExists('field_ui') === TRUE) {
     \Drupal::service('module_installer')->uninstall(['field_ui']);
+  }
+}
+
+/**
+ * Manage table border through user interface in CKEditor5 (#2131 and #138).
+ */
+function utdk_saas_update_8106() {
+  $configs = [
+    'editor.editor.full_html',
+    'filter.format.full_html',
+  ];
+  foreach ($configs as $config) {
+    $config_path = \Drupal::service('extension.list.profile')->getPath('utexas') . '/config/install/' . $config . '.yml';
+    if (file_exists($config_path)) {
+      $data = Yaml::parse(file_get_contents($config_path));
+      if (is_array($data)) {
+        \Drupal::configFactory()->getEditable($config)->setData($data)->save(TRUE);
+      }
+    }
   }
 }
