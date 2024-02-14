@@ -103,3 +103,22 @@ function utdk_saas_update_8107() {
     }
   }
 }
+
+/**
+ * Use event summary as default value for the "description" metatag.
+ */
+function utdk_saas_update_8108() {
+  $configs = [
+    'metatag.metatag_defaults.node__utevent_event',
+  ];
+
+  foreach ($configs as $config) {
+    $config_path = \Drupal::service('extension.list.module')->getPath('utevent_content_type_event') . '/config/default/' . $config . '.yml';
+    if (file_exists($config_path)) {
+      $data = Yaml::parse(file_get_contents($config_path));
+      if (is_array($data)) {
+        \Drupal::configFactory()->getEditable($config)->setData($data)->save(TRUE);
+      }
+    }
+  }
+}
