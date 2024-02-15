@@ -122,3 +122,12 @@ function utdk_saas_update_8108() {
     }
   }
 }
+
+/**
+ * Use news summary as default value for the "description" metatag.
+ */
+function utdk_saas_update_8109() {
+  $metatag_defaults = \Drupal::configFactory()->getEditable('metatag.metatag_defaults.node__utnews_news');
+  $metatag_defaults->set('tags.description', '[node:field_utnews_body:summary]');
+  $metatag_defaults->save();
+}
