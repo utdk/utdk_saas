@@ -17,5 +17,6 @@ dependencies:
   - 'utprof_view_profiles'
   - 'utprof_vocabulary_groups'
   - 'utprof_vocabulary_tags'
+  - 'utexas_role_site_manager'
   - 'utexas_saml_auth_helper'
 core_incompatible: false

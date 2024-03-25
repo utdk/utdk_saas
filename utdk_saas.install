@@ -7,6 +7,10 @@
 
 use Drupal\filter\Entity\FilterFormat;
 use Drupal\utdk_saas\SaasHelper;
+use Drupal\utevent\Permissions as EventPermissions;
+use Drupal\utexas\Permissions as KernelPermissions;
+use Drupal\utnews\Permissions as NewsPermissions;
+use Drupal\utprof\Permissions as ProfilePermissions;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -17,6 +21,19 @@ function utdk_saas_install() {
   SaasHelper::assignPermissions(['administer blocks'], 'utexas_site_manager');
   // Disable Drupal-generated system advisories (#70).
   \Drupal::service('config.factory')->getEditable('system.advisories')->set('enabled', 0)->save();
+  // Add SaaS permissions sets.
+  $manager_role = 'utexas_role_site_manager';
+  KernelPermissions::assignPermissions('manager', $manager_role);
+  EventPermissions::assignPermissions('manager', $manager_role);
+  NewsPermissions::assignPermissions('manager', $manager_role);
+  ProfilePermissions::assignPermissions('manager', $manager_role);
+  \Drupal::logger('utdk_saas')->notice(t('Management permissions have been added to the %role role.', ['%role' => $manager_role]));
+  $editor_role = 'utexas_role_content_editor';
+  KernelPermissions::assignPermissions('manager', $editor_role);
+  EventPermissions::assignPermissions('manager', $editor_role);
+  NewsPermissions::assignPermissions('manager', $editor_role);
+  ProfilePermissions::assignPermissions('manager', $editor_role);
+  \Drupal::logger('utdk_saas')->notice(t('Editing permissions have been added to the %role role.', ['%role' => $editor_role]));
 }
 
 /**
