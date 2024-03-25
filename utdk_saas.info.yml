@@ -2,7 +2,7 @@ name: UT Drupal Kit SaaS
 type: module
 description: Provides configuration for managed UT Drupal Kit sites.
 core_version_requirement: ^9 || ^10
-version: '3.5.0'
+version: '3.6.0'
 package: UTexas
 dependencies:
   - 'drupal:smtp'
@@ -17,5 +17,6 @@ dependencies:
   - 'utprof_view_profiles'
   - 'utprof_vocabulary_groups'
   - 'utprof_vocabulary_tags'
+  - 'utexas_role_site_manager'
   - 'utexas_saml_auth_helper'
 core_incompatible: false
