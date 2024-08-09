@@ -148,3 +148,21 @@ function utdk_saas_update_8109() {
   $metatag_defaults->set('tags.description', '[node:field_utnews_body:summary]');
   $metatag_defaults->save();
 }
+
+/**
+ * Make headline underline available in full_html Styles dropdown (#2617).
+ */
+function utdk_saas_update_8110() {
+  $configs = [
+    'editor.editor.full_html',
+  ];
+  foreach ($configs as $config) {
+    $config_path = \Drupal::service('extension.list.profile')->getPath('utexas') . '/config/install/' . $config . '.yml';
+    if (file_exists($config_path)) {
+      $data = Yaml::parse(file_get_contents($config_path));
+      if (is_array($data)) {
+        \Drupal::configFactory()->getEditable($config)->setData($data)->save(TRUE);
+      }
+    }
+  }
+}
