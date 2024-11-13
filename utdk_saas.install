@@ -148,3 +148,12 @@ function utdk_saas_update_8109() {
   $metatag_defaults->set('tags.description', '[node:field_utnews_body:summary]');
   $metatag_defaults->save();
 }
+
+/**
+ * Set full_html updates to TRUE (utdk_profile#2289).
+ */
+function utdk_saas_update_8110() {
+  $state_api = \Drupal::state();
+  // Set Full HTML configuration opt-in.
+  $state_api->set('full_html_updates', 1);
+}

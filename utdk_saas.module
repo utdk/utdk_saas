@@ -5,6 +5,7 @@
  * Contains business logic for UTDK SaaS module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\utdk_saas\ToolbarHandler;
 
 /**
@@ -14,4 +15,14 @@ function utdk_saas_toolbar() {
   return \Drupal::service('class_resolver')
     ->getInstanceFromDefinition(ToolbarHandler::class)
     ->toolbar();
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function utdk_saas_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'utexas_general_config') {
+    // UTDK Managed sites should not be able to change this setting.
+    $form['development_settings']['full_html_updates']['#disabled'] = TRUE;
+  }
 }
