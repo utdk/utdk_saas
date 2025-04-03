@@ -64,7 +64,7 @@ class ToolbarHandler implements ContainerInjectionInterface {
   public function toolbar() {
     $items['utdk_saas_support'] = [
       '#cache' => [
-        'contexts' => ['user.permissions'],
+        'contexts' => ['user.roles'],
       ],
     ];
 
@@ -74,7 +74,7 @@ class ToolbarHandler implements ContainerInjectionInterface {
       ],
     ];
 
-    if ($this->account->hasPermission('access toolbar')) {
+    if ($this->account->hasRole('utexas_site_manager') || $this->account->hasRole('utexas_content_editor')) {
       $items['support'] = [
         '#type' => 'toolbar_item',
         'tab' => [
