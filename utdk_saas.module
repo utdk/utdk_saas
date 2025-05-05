@@ -6,16 +6,6 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\utdk_saas\ToolbarHandler;
-
-/**
- * Implements hook_toolbar().
- */
-function utdk_saas_toolbar() {
-  return \Drupal::service('class_resolver')
-    ->getInstanceFromDefinition(ToolbarHandler::class)
-    ->toolbar();
-}
 
 /**
  * Implements hook_form_alter().

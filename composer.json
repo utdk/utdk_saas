@@ -15,7 +15,7 @@
     "utexas/utevent": "^3",
     "utexas/utnews": "^3",
     "utexas/utprof": "^3",
-    "utexas/utdk_profile": "^3.23.0"
+    "utexas/utdk_profile": "^3.24.0"
   },
   "config": {
     "sort-packages": true
