@@ -1,7 +1,7 @@
 ---
 name: Task
 about: Changes not related to bugs or new features
-labels: 'task'
+type: task
 
 ---
 
